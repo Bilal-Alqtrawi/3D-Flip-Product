@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  transform-style: preserve-3d;
+
+  &:hover :not(:hover) {
+    margin: 0 -20px;
+    transform: perspective(500px) rotateY(45deg) scale(0.95);
+    -webkit-transform: perspective(500px) rotateY(45deg) scale(0.95);
+    -moz-transform: perspective(500px) rotateY(45deg) scale(0.95);
+    -ms-transform: perspective(500px) rotateY(45deg) scale(0.95);
+    -o-transform: perspective(500px) rotateY(45deg) scale(0.95);
+  }
+  &:hover :not(:hover) {
+    opacity: 0.4;
+  }
+}
+.gallery .image-holder {
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.gallery .image-holder {
+  width: 250px;
+  aspect-ratio: 3/4;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  transition: margin 0.5s, transform 0.5s;
+  -webkit-transition: margin 0.5s, transform 0.5s;
+  -moz-transition: margin 0.5s, transform 0.5s;
+  -ms-transition: margin 0.5s, transform 0.5s;
+  -o-transition: margin 0.5s, transform 0.5s;
+  &:first-child {
+    background-image: url(imgs/pexels-andrea-orfino-1645111082-27665867.jpg);
+  }
+  &:nth-of-type(2) {
+    background-image: url(imgs/pexels-cknguyen92-25823790.jpg);
+  }
+  &:nth-of-type(3) {
+    background-image: url(imgs/pexels-esrakorkmaz-27316259.jpg);
+  }
+  &:nth-of-type(4) {
+    background-image: url(imgs/pexels-ladyhelga-26083604.jpg);
+  }
+  &:last-child {
+    background-image: url(imgs/pexels-raymond-petrik-1448389535-26832674.jpg);
+  }
+  &:hover ~ .image-holder {
+    transform: perspective(500px) rotateY(-45deg) scale(0.95);
+    -webkit-transform: perspective(500px) rotateY(-45deg) scale(0.95);
+    -moz-transform: perspective(500px) rotateY(-45deg) scale(0.95);
+    -ms-transform: perspective(500px) rotateY(-45deg) scale(0.95);
+    -o-transform: perspective(500px) rotateY(-45deg) scale(0.95);
+  }
+  &:hover {
+    transform: perspective(500px) rotateY(0) scale(1.2);
+    -webkit-transform: perspective(500px) rotateY(0) scale(1.2);
+    -moz-transform: perspective(500px) rotateY(0) scale(1.2);
+    -ms-transform: perspective(500px) rotateY(0) scale(1.2);
+    -o-transform: perspective(500px) rotateY(0) scale(1.2);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: inherit;
+    aspect-ratio: inherit;
+    border-radius: inherit;
+    -webkit-border-radius: inherit;
+    -moz-border-radius: inherit;
+    -ms-border-radius: inherit;
+    -o-border-radius: inherit;
+    background-color: black;
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -ms-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    opacity: 0;
+  }
+  &:hover::after ~ :not(:hover)::after {
+    opacity: 0.5;
+    background: red;
+  }
+}
